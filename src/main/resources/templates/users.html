@@ -29,7 +29,12 @@
             <td th:text="${user.age}"></td>
             <td>
                 <a href="/edit/" th:href="@{'/edit/' + ${user.id}}" class="btn btn-success" role="button" aria-pressed="true">Редактировать</a>
-                <a href="/" th:href="@{'/delete/' + ${user.id}}" class="btn btn-danger" role="button" aria-pressed="true">Удалить</a>
+
+                <form th:method="DELETE" th:action="@{/delete/{id}(id=${user.getId()})}">
+                    <input type="submit" class="btn btn-danger" role="button" aria-pressed="true" value="Удалить"/>
+                </form>
+
+<!--                <a href="/" th:href="@{'/delete/' + ${user.id}}" class="btn btn-danger" role="button" aria-pressed="true">Удалить</a>-->
             </td>
         </tr>
         </tbody>

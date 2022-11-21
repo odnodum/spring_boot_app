@@ -10,13 +10,13 @@
 <body>
 <h2>Редактировать</h2>
 
-<form th:method="POST" th:action="@{/add}">
+<form th:method="patch" th:action="@{/edit/{id}(id=${user.getId()})}" th:object="${user}">
     <label class="form-label" for="name">Имя</label>
-    <input type="text" class="form-control" th:field="*{user.name}" id="name" value="${user.name}"/>
+    <input type="text" class="form-control" th:field="*{name}" id="name"/>
     <label class="form-label" for="surname">Фамилия</label>
-    <input type="text" class="form-control" th:field="*{user.surname}" id="surname" value="${user.surname}"/>
+    <input type="text" class="form-control" th:field="*{surname}" id="surname"/>
     <label class="form-label" for="age">Возраст</label>
-    <input type="text" class="form-control" th:field="*{user.age}" id="age" value="${user.age}"/>
+    <input type="text" class="form-control" th:field="*{age}" id="age"/>
     <br>
     <br>
     <input type="submit" class="btn btn-primary" value="Редактировать"/>
